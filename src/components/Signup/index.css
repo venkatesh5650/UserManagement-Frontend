@@ -1,15 +1,24 @@
 .signup-container {
   min-height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* black with 50% transparency */
+  /* background: rgba(0, 0, 0, 0.5); black with 50% transparency */
   /* background fill for empty space if image doesn't cover */
+  background-image: url("https://res.cloudinary.com/dpiu7mohv/image/upload/v1722878097/3896144_g4lv29.jpg");
   padding: 20px;
+  background-size: contain;
 }
 
 /* Form background with slight transparency */
 .signup-form {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: lightyellow;
   max-width: 400px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .signup-form {
+    margin-top:270px;
+    background-color: white;
+  }
 }
 
 /* Add smooth shadow and rounded corners */

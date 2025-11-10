@@ -1,19 +1,35 @@
 /* Full page background gradient */
 .login-container {
   min-height: 100vh;
-  background-image: url("https://res.cloudinary.com/dpiu7mohv/image/upload/v1762701704/bgImage_qxw5dc.avif");
+  background-size: contain;
+  /* background-image: url("https://res.cloudinary.com/dpiu7mohv/image/upload/v1762701704/bgImage_qxw5dc.avif"); */
+  background-image: url("https://res.cloudinary.com/dpiu7mohv/image/upload/v1762747310/3900527_yi3ito.jpg");
   padding: 20px;
+}
+@media (max-width: 768px) {
+  .login-container {
+    /* background:rgba(145, 184, 221, 0.2) */
+    background-size: contain;
+    width: 100vw;
+    background-image: url("https://res.cloudinary.com/dpiu7mohv/image/upload/v1762747310/3900527_yi3ito.jpg");
+    
+  }
 }
 
 /* Form background with slight transparency */
 .login-form {
-  background-color: skyblue;
+  background-color:white;
   max-width: 400px;
   width: 100%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 
+@media (max-width: 768px) {
+  .login-form {
+    margin-top:320px;
+  }
+}
 
 /* Center the h2 text and add font weight */
 .login-form h2 {
@@ -22,8 +38,8 @@
 }
 
 /* Button hover effect */
-.login-form .btn-primary:hover {
-  background-color: #0d6efdcc;
+.login-form .btn-success:hover {
+  background-color: green;
   transform: scale(1.02);
   transition: all 0.3s ease;
 }
