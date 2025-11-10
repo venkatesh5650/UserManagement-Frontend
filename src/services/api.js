@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://usermanagement-backend-2-0paz.onrender.com/api',
+  baseURL: 'https://usermanagement-backend-2-0paz.onrender.com',
 });
 
 // Attach JWT token automatically
