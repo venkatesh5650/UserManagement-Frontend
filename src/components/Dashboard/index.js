@@ -33,6 +33,7 @@ export default function Dashboard() {
   useEffect(() => {
     fetchTasks();
     fetchProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, statusFilter]);
 
   const handleCreate = async (e) => {
