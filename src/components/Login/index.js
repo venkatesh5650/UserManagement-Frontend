@@ -9,6 +9,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // ✅ NEW
   const [error, setError] = useState("");
 
   // ✅ Redirect if already logged in
@@ -30,6 +31,12 @@ export default function Login() {
     }
   };
 
+  // ✅ Demo Login Autofill
+  const fillDemoCredentials = () => {
+    setEmail("demo@taskApp.com");
+    setPassword("demo5650");
+  };
+
   return (
     <div className="login-container d-flex justify-content-center align-items-center">
       <form onSubmit={handleSubmit} className="login-form p-4 rounded shadow">
@@ -47,9 +54,10 @@ export default function Login() {
             required
           />
         </div>
-        <div className="mb-4">
+
+        <div className="mb-2">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"} // ✅ Toggle visibility
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -58,8 +66,30 @@ export default function Login() {
           />
         </div>
 
-        <button type="submit" className="btn btn-success w-100 mb-3">
+        {/* ✅ Show Password Checkbox */}
+        <div className="form-check mb-4">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="showPassCheckLogin"
+            checked={showPassword}
+            onChange={() => setShowPassword(!showPassword)}
+          />
+          <label className="form-check-label" htmlFor="showPassCheckLogin">
+            Show Password
+          </label>
+        </div>
+
+        <button type="submit" className="btn btn-success w-100 mb-2">
           Login
+        </button>
+
+        <button
+          type="button"
+          onClick={fillDemoCredentials}
+          className="btn btn-outline-secondary w-100 mb-3"
+        >
+          Use Demo Account
         </button>
 
         <p className="text-center">
@@ -68,4 +98,4 @@ export default function Login() {
       </form>
     </div>
   );
-}
+} 
