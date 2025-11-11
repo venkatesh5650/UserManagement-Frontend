@@ -10,6 +10,7 @@ export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // ✅ New state
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -40,6 +41,7 @@ export default function Signup() {
             required
           />
         </div>
+
         <div className="mb-3">
           <input
             type="email"
@@ -50,9 +52,10 @@ export default function Signup() {
             required
           />
         </div>
-        <div className="mb-4">
+
+        <div className="mb-2">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"} // ✅ Toggle input type
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -60,9 +63,25 @@ export default function Signup() {
             required
           />
         </div>
+
+        {/* ✅ Show Password Checkbox */}
+        <div className="form-check mb-4">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="showPassCheck"
+            checked={showPassword}
+            onChange={() => setShowPassword(!showPassword)}
+          />
+          <label className="form-check-label" htmlFor="showPassCheck">
+            Show Password
+          </label>
+        </div>
+
         <button type="submit" className="btn btn-primary w-100 mb-3">
           Signup
         </button>
+
         <p className="text-center">
           Already have an account? <Link to="/login">Login</Link>
         </p>
